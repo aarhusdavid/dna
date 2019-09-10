@@ -17,11 +17,16 @@ dna::~dna()
 
 string dna::countLength(string input)
 {
-    string STRING;
+    string nextLine;
+    string lines;
     ifstream infile;
     infile.open (input);
-    getline(infile,STRING); // Saves the line in STRING.
-    return STRING;
+    while (infile.peek() != EOF)
+    {
+        getline(infile,nextLine); // Saves the line in STRING.
+        lines = lines + "\n" + nextLine;
+    }
+    return lines;
     infile.close();
 
     // int count = 0;
