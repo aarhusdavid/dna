@@ -14,11 +14,11 @@ int main(int argc, char** argv) //argc stands for command line arguments
     cout << "Enter file name: " << endl;
     cin >> file_name; //console input; like the scanner class in java to read input from user
 
-    dna q; //stored in the stack
+    dna d; //stored in the stack
 
     cout << "number of command line arguments: " << argc << endl;
     cout << "Name of the file: " << file_name << endl;
-    // cout << "argc is: " << argc << endl;
+    cout << "Strings in file: " << d.countLength(file_name) << endl;
     cout << "progam exited successfully" << endl;
 
     return 0;
