@@ -18,7 +18,11 @@ int main(int argc, char** argv) //argc stands for command line arguments
 
     cout << "number of command line arguments: " << argc << endl;
     cout << "Name of the file: " << file_name << endl;
-    cout << "Strings in file: " << d.countLength(file_name) << endl;
+    cout << "Strings in file: " << "\n---------------" << d.countLength(file_name) << endl;
+    cout << "Sum of DNA nucleotides: " << d.sumLength(file_name) << endl;
+    cout << "Average amount of nucleotides in each DNA strand: " << d.mean(file_name) << endl;
+
+
     cout << "progam exited successfully" << endl;
 
     return 0;
