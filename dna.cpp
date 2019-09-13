@@ -312,7 +312,6 @@ string dna::probability(string input)
     string sgg_prob = to_string(gg_prob);
 
 
-
     return ("Probability of 'a': " + sa_prob +  "%\n" + "Probability of 'aa': " + saa_prob +  "%\n" + "Probability of 'ac': " + sac_prob +  "%\n" + "Probability of 'at': " + sat_prob +  "%\n" + "Probability of 'ag': " + sag_prob +  "%\n" +   "Probability of 'c': " + sc_prob + "%\n" +  "Probability of 'ca': " + sca_prob +  "%\n" + "Probability of 'cc': " + scc_prob +  "%\n" + "Probability of 'ct': " + sct_prob +  "%\n" + "Probability of 'cg': " + scg_prob +  "%\n"  "Probability of 't': " + st_prob + "%\n" +  "Probability of 'ta': " + sta_prob +  "%\n" + "Probability of 'tc': " + stc_prob +  "%\n" + "Probability of 'tt': " + stt_prob +  "%\n" + "Probability of 'tg': " + stg_prob +  "%\n"  "Probability of 'g': " + sg_prob + "%\n" +  "Probability of 'ga': " + sga_prob +  "%\n" + "Probability of 'gc': " + sgc_prob +  "%\n" + "Probability of 'gt': " + sgt_prob +  "%\n" + "Probability of 'gg': " + sgg_prob +  "%\n" );
     infile.close();
 }
