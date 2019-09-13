@@ -22,6 +22,8 @@ int main(int argc, char** argv) //argc stands for command line arguments
     cout << "Sum of DNA nucleotides: " << d.sumLength(file_name) << endl;
     cout << "Average amount of nucleotides in each DNA strand: " << d.mean(file_name) << endl;
     cout << "Variance: " << d.variance(file_name) << endl;
+    cout << d.probability(file_name) << endl;
+
 
 
 
