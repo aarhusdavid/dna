@@ -34,6 +34,28 @@ int main(int argc, char** argv) //argc stands for command line arguments
     outputFile << "Standard Deviation: " << d.stdv(file_name) << endl;
     outputFile << d.probability(file_name) << endl;
 
+    //declares new string for appended strings
+    string line;
+    //iterates through 1000 strings and writes them to a file
+    for(int i = 0; i < 1000; ++i)
+    {
+        //calc string length with mean and stdv
+        int stringlength = d.gaussin(d.mean(file_name),d.variance(file_name));
+        //adds new string to line
+        while(stringlength != 0)
+        {
+            for(int i = 0; i < stringlength; ++i)
+            {
+                string newchar = d.getNucleo();
+                line += newchar;
+                stringlength--;
+            }
+        }
+        line += "\n";
+    }
+    //writes through
+    outputFile << line << endl;
+
     // tells user that program was completed
     cout << "progam exited successfully" << endl;
 

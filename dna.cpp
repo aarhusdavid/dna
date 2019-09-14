@@ -6,9 +6,64 @@
 //allows calculations
 #include <string>
 #include <cmath>
+#define _USE_MATH_DEFINES
 
 //allows you to print
 using namespace std;
+
+//initializes count variables for each combinations
+double count = 0;
+double prob_count = 0;
+
+double a_count = 0;
+double aa_count = 0;
+double ac_count = 0;
+double at_count = 0;
+double ag_count = 0;
+
+double c_count = 0;
+double ca_count = 0;
+double cc_count = 0;
+double ct_count = 0;
+double cg_count = 0;
+
+double t_count = 0;
+double ta_count = 0;
+double tc_count = 0;
+double tt_count = 0;
+double tg_count = 0;
+
+double g_count = 0;
+double ga_count = 0;
+double gc_count = 0;
+double gt_count = 0;
+double gg_count = 0;
+
+//calculates each percentage for each probability
+double a_prob = 0;
+double aa_prob = 0;
+double ac_prob = 0;
+double at_prob = 0;
+double ag_prob = 0;
+
+double c_prob = 0;
+double ca_prob = 0;
+double cc_prob = 0;
+double ct_prob = 0;
+double cg_prob = 0;
+
+double t_prob = 0;
+double ta_prob = 0;
+double tc_prob = 0;
+double tt_prob = 0;
+double tg_prob = 0;
+
+double g_prob = 0;
+double ga_prob = 0;
+double gc_prob = 0;
+double gt_prob = 0;
+double gg_prob = 0;
+
 
 //constructor
 dna::dna()
@@ -22,16 +77,14 @@ dna::~dna()
     cout << "object deleted" << endl;
 }
 
-
 //calculates the sum of nucleotides
 int dna::sumLength(string input)
 {
     //variables for all the nucleotide counts, total count, error, and line count
-    int a_count = 0;
-    int c_count = 0;
-    int t_count = 0;
-    int g_count = 0;
-    int count = 0;
+    // int a_count = 0;
+    // int c_count = 0;
+    // int t_count = 0;
+    // int g_count = 0;
     int error = 0;
     int strandCount = 0;
 
@@ -52,16 +105,16 @@ int dna::sumLength(string input)
             //changes character to lower case
             char charr = tolower(strand[i]);
             if(charr == 'a'){
-                a_count++;
+                // a_count++;
                 count++;}
             else if (charr =='c'){
-                c_count++;
+                // c_count++;
                 count++;}
             else if (charr =='t'){
-                t_count++;
+                // t_count++;
                 count++;}
             else if (charr =='g'){
-                g_count++;
+                // g_count++;
                 count++;}
             else
                 ++error;
@@ -77,11 +130,7 @@ int dna::sumLength(string input)
 double dna::mean(string input)
 {
     //initializes variables for nucleotide counts, errors, and strandCounts
-    int a_count = 0;
-    int c_count = 0;
-    int t_count = 0;
-    int g_count = 0;
-    double count = 0;
+    double av_count = 0;
     int error = 0;
     double strandCount = 0;
 
@@ -102,23 +151,23 @@ double dna::mean(string input)
             //changes character to lowercase
             char charr = tolower(strand[i]);
             if(charr == 'a'){
-                a_count++;
-                count++;}
+                // a_count++;
+                av_count++;}
             else if (charr =='c'){
-                c_count++;
-                count++;}
+                // c_count++;
+                av_count++;}
             else if (charr =='t'){
-                t_count++;
-                count++;}
+                // t_count++;
+                av_count++;}
             else if (charr =='g'){
-                g_count++;
-                count++;}
+                // g_count++;
+                av_count++;}
             else
                 ++error;
         }
     }
     //calculates mean by dividing total count by amount of lines
-    return count/strandCount;
+    return av_count/strandCount;
     //closes file
     infile.close();
 }
@@ -127,7 +176,7 @@ double dna::mean(string input)
 double dna::variance(string input)
 {
     //initializes variables
-    double count = 0.0;
+    double var_count = 0.0;
     int error = 0;
     double strandCount = 0.0;
     double av = mean(input);
@@ -151,24 +200,24 @@ double dna::variance(string input)
         {
             char charr = tolower(strand[i]);
             if(charr == 'a'){
-                count++;}
+                var_count++;}
             else if (charr =='c'){
-                count++;}
+                var_count++;}
             else if (charr =='t'){
-                count++;}
+                var_count++;}
             else if (charr =='g'){
-                count++;}
+                var_count++;}
             else
-                count++;
+                var_count++;
         }
 
         //calculates variance
-        var = count - av;
+        var = var_count - av;
         s_var = pow(var,2);
         var_total = var_total + s_var;
 
         //sets variance variables back to 0
-        count = 0;
+        var_count = 0;
         var = 0;
         s_var = 0;
     }
@@ -186,7 +235,7 @@ double dna::variance(string input)
 double dna::stdv(string input)
 {
     //initializes variables
-    double count = 0.0;
+    double stdv_count = 0.0;
     int error = 0;
     double strandCount = 0.0;
     double av = mean(input);
@@ -210,30 +259,29 @@ double dna::stdv(string input)
         {
             char charr = tolower(strand[i]);
             if(charr == 'a'){
-                count++;}
+                stdv_count++;}
             else if (charr =='c'){
-                count++;}
+                stdv_count++;}
             else if (charr =='t'){
-                count++;}
+                stdv_count++;}
             else if (charr =='g'){
-                count++;}
+                stdv_count++;}
             else
-                count++;
+                stdv_count++;
         }
 
         //calculates variance
-        var = count - av;
+        var = stdv_count - av;
         s_var = pow(var,2);
         var_total = var_total + s_var;
 
         //sets variance variables back to 0
-        count = 0;
+        stdv_count = 0;
         var = 0;
         s_var = 0;
     }
-    double square_var_total = pow(var_total,2);
-    double stdvation = square_var_total / (strandCount - 1);
-
+    double new_var = var_total / (strandCount-1);
+    double stdvation = sqrt(new_var);
     return stdvation;
     infile.close();
 
@@ -243,32 +291,6 @@ double dna::stdv(string input)
 //calculates probability for nucleotides
 string dna::probability(string input)
 {
-    //initializes count variables for each combinations
-    double a_count = 0;
-    double aa_count = 0;
-    double ac_count = 0;
-    double at_count = 0;
-    double ag_count = 0;
-
-    double c_count = 0;
-    double ca_count = 0;
-    double cc_count = 0;
-    double ct_count = 0;
-    double cg_count = 0;
-
-    double t_count = 0;
-    double ta_count = 0;
-    double tc_count = 0;
-    double tt_count = 0;
-    double tg_count = 0;
-
-    double g_count = 0;
-    double ga_count = 0;
-    double gc_count = 0;
-    double gt_count = 0;
-    double gg_count = 0;
-
-    double count = 0;
     double error = 0;
     double strandCount = 0;
 
@@ -289,129 +311,131 @@ string dna::probability(string input)
             //counts each nucleotide combination
             if(charr == 'a'){
                 a_count++;
-                count++;
+                prob_count++;
                 if (nextcharr == 'a'){
                     aa_count++;
                     a_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'c'){
                     ac_count++;
                     c_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 't'){
                     at_count++;
                     t_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'g'){
                     ag_count++;
                     g_count++;
-                    count++;
+                    prob_count++;
                 }
             }
             else if (charr =='c'){
                 c_count++;
-                count++;
+                prob_count++;
                 if (nextcharr == 'a'){
                     ca_count++;
                     a_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'c'){
                     cc_count++;
                     c_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 't'){
                     ct_count++;
                     t_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'g'){
                     cg_count++;
                     g_count++;
-                    count++;
+                    prob_count++;
                 }
             }
             else if (charr =='t'){
                 t_count++;
-                count++;
+                prob_count++;
                 if (nextcharr == 'a'){
                     ta_count++;
                     a_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'c'){
                     tc_count++;
                     c_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 't'){
                     tt_count++;
                     t_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'g'){
                     tg_count++;
                     g_count++;
-                    count++;
+                    prob_count++;
                 }
             }
             else if (charr =='g'){
                 g_count++;
-                count++;
+                prob_count++;
                 if (nextcharr == 'a'){
                     ga_count++;
                     a_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'c'){
                     gc_count++;
                     c_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 't'){
                     gt_count++;
                     t_count++;
-                    count++;
+                    prob_count++;
                 }
                 else if (nextcharr == 'g'){
                     gg_count++;
                     g_count++;
-                    count++;
+                    prob_count++;
                 }
             }
             else
                 ++error;
         }
+
+
     }
 
-    //calculates each percentage for each probability
-    double a_prob = (a_count/count)*100;
-    double aa_prob = (aa_count/count)*200;
-    double ac_prob = (ac_count/count)*200;
-    double at_prob = (at_count/count)*200;
-    double ag_prob = (ag_count/count)*200;
+    //calculates probabilitys
+    a_prob = (a_count/prob_count);
+    aa_prob = (aa_count/prob_count)*100;
+    ac_prob = (ac_count/prob_count)*100;
+    at_prob = (at_count/prob_count)*100;
+    ag_prob = (ag_count/prob_count)*100;
 
-    double c_prob = (c_count/count)*100;
-    double ca_prob = (ca_count/count)*200;
-    double cc_prob = (cc_count/count)*200;
-    double ct_prob = (ct_count/count)*200;
-    double cg_prob = (cg_count/count)*200;
+    c_prob = (c_count/prob_count);
+    ca_prob = (ca_count/prob_count)*100;
+    cc_prob = (cc_count/prob_count)*100;
+    ct_prob = (ct_count/prob_count)*100;
+    cg_prob = (cg_count/prob_count)*100;
 
-    double t_prob = (t_count/count)*100;
-    double ta_prob = (ta_count/count)*200;
-    double tc_prob = (tc_count/count)*200;
-    double tt_prob = (tt_count/count)*200;
-    double tg_prob = (tg_count/count)*200;
+    t_prob = (t_count/prob_count);
+    ta_prob = (ta_count/prob_count)*100;
+    tc_prob = (tc_count/prob_count)*100;
+    tt_prob = (tt_count/prob_count)*100;
+    tg_prob = (tg_count/prob_count)*100;
 
-    double g_prob = (g_count/count)*100;
-    double ga_prob = (ga_count/count)*200;
-    double gc_prob = (gc_count/count)*200;
-    double gt_prob = (gt_count/count)*200;
-    double gg_prob = (gg_count/count)*200;
+    g_prob = (g_count/prob_count);
+    ga_prob = (ga_count/prob_count)*100;
+    gc_prob = (gc_count/prob_count)*100;
+    gt_prob = (gt_count/prob_count)*100;
+    gg_prob = (gg_count/prob_count)*100;
 
     string sa_prob = to_string(a_prob);
     string saa_prob = to_string(aa_prob);
@@ -437,7 +461,66 @@ string dna::probability(string input)
     string sgt_prob = to_string(gt_prob);
     string sgg_prob = to_string(gg_prob);
 
+
     //returns print statements with each calculated probability
     return ("Probability of 'a': " + sa_prob +  "%\n" + "Probability of 'aa': " + saa_prob +  "%\n" + "Probability of 'ac': " + sac_prob +  "%\n" + "Probability of 'at': " + sat_prob +  "%\n" + "Probability of 'ag': " + sag_prob +  "%\n" +   "Probability of 'c': " + sc_prob + "%\n" +  "Probability of 'ca': " + sca_prob +  "%\n" + "Probability of 'cc': " + scc_prob +  "%\n" + "Probability of 'ct': " + sct_prob +  "%\n" + "Probability of 'cg': " + scg_prob +  "%\n"  "Probability of 't': " + st_prob + "%\n" +  "Probability of 'ta': " + sta_prob +  "%\n" + "Probability of 'tc': " + stc_prob +  "%\n" + "Probability of 'tt': " + stt_prob +  "%\n" + "Probability of 'tg': " + stg_prob +  "%\n"  "Probability of 'g': " + sg_prob + "%\n" +  "Probability of 'ga': " + sga_prob +  "%\n" + "Probability of 'gc': " + sgc_prob +  "%\n" + "Probability of 'gt': " + sgt_prob +  "%\n" + "Probability of 'gg': " + sgg_prob +  "%\n" );
     infile.close();
+}
+
+string dna::getNucleo()
+{
+    while(true)
+    {
+        //num between 1 and 0
+        double num = ((double) rand() / (RAND_MAX));
+
+        //if statements that calc the probability of ACTG
+        if(num <= (a_prob))
+        {
+            return "a";
+            num = ((double) rand() / (RAND_MAX));
+        }
+
+        if(num <= (c_prob))
+        {
+            return "c";
+            num = ((double) rand() / (RAND_MAX));
+        }
+
+        if(num <= (t_prob))
+        {
+            return "t";
+            num = ((double) rand() / (RAND_MAX));
+        }
+
+        if(num <= (g_prob))
+        {
+            return "g";
+            num = ((double) rand() / (RAND_MAX));
+        }
+
+    }
+}
+
+int dna::gaussin(double mean, double variance)
+{
+    //calculates random num for a and b (0-1)
+    double a = ((double) rand() / (RAND_MAX));
+    double b = ((double) rand() / (RAND_MAX));
+
+    b = cos(2 * M_PI * b);
+
+    //makes b positive if it is negative
+    if (b < 0)
+    {
+        b = (b * -1);
+    }
+
+    double c = sqrt((-2) * log(a)) * b;
+    // calculates random length
+    double d = (variance * c) + mean;
+    //turns length into int
+    int round = ceil(d);
+
+    return round;
 }
